@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913141440) do
+ActiveRecord::Schema.define(version: 20160914101437) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "first_name",  limit: 40
@@ -32,6 +32,11 @@ ActiveRecord::Schema.define(version: 20160913141440) do
   end
 
   add_index "african_names", ["attribute_id"], name: "index_african_names_on_attribute_id", using: :btree
+
+  create_table "african_names_attributes", id: false, force: :cascade do |t|
+    t.integer "african_name_id", limit: 4
+    t.integer "attribute_id",    limit: 4
+  end
 
   create_table "attributes", force: :cascade do |t|
     t.string   "virtue",     limit: 255
